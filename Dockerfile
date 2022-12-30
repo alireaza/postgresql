@@ -11,5 +11,5 @@ RUN addgroup -S $GNAME --gid $GID \
 && chown -R $UNAME:$GNAME /var/lib/postgresql
 USER $UNAME
 
-HEALTHCHECK --start-period=5s --timeout=5s --interval=5s --retries=5 CMD pg_isready || exit -1
+HEALTHCHECK --start-period=5s --timeout=5s --interval=5s --retries=5 CMD pg_isready --username="${POSTGRES_USER:-postgres}" || exit -1
 

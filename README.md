@@ -13,6 +13,7 @@ $ docker run \
 --tty \
 --rm \
 --env="TZ=$(cat /etc/timezone)" \
+--env="POSTGRES_PASSWORD=PASSWORD"
 --mount="type=bind,source=$(pwd)/udocker,target=/var/lib/postgresql/data" \
 --publish="5432:5432" \
 --name="postgresql" \
